@@ -17,29 +17,35 @@
         <label for="kuvaus">Mitä haluat tehdä?</label> 
         <input type="text" name="kuvaus" id="kuvaus" maxlength=50><br>
         
-        <label for="aloituspaiva">Mitä haluat tehdä?</label> 
-        <input type="text" name="aloituspaiva" id="aloituspaiva" maxlength=50><br>
+        <label for="aloituspaiva">Mikä päivä?</label> 
+        <input type="date" id="aloituspaiva" name="aloituspaiva" value="" min="2024-01-01" max="2024-12-31" />
         
         <input type="submit" value="Lähetä">
     </form>
 
     <?php
 
-        $taulukko = array();
+        $tasks = array();
 
         $id = 1;
 
         $aloituspaiva = date("d/m/Y");
 
-        if(isset($_GET['kuvaus'])){
+        if(isset($_GET['kuvaus'], $_GET['aloituspaiva'])){
             $kuvaus = htmlspecialchars($_GET['kuvaus']);
             $aloituspaiva = htmlspecialchars($_GET['aloituspaiva']);
-            echo $kuvaus;
+
+            $newTask = new Task($id, $kuvaus, $aloituspaiva);
+            
             // array_push($myArray, new Task(1, “Go shopping”, “2024/01/23”));
-            array_push($taulukko, new Task($id, $kuvaus, $aloituspaiva));
+            array_push($tasks, $newTask);
+            foreach ($tasks as $task) {
+                echo $task;
+            }
+
             
             // while ():
-            //     echo $taulukko;
+            //     echo $tasks;
             //     $id++;
             // endwhile;
         }

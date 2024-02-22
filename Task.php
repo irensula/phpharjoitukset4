@@ -2,12 +2,12 @@
         class Task {
             protected $id;
             protected $kuvaus;
-            protected $aloituspäivä;
+            protected $aloituspaiva;
 
-        public function __construct($id, $kuvaus, $aloituspäivä) {
+        public function __construct($id, $kuvaus, $aloituspaiva) {
             $this->id = $id;
             $this->kuvaus = $kuvaus;
-            $this->aloituspäivä = $aloituspäivä;
+            $this->aloituspaiva = $aloituspaiva;
         }
         public function getId() {
             return $this->id;
@@ -27,4 +27,8 @@
         public function setAloituspaiva($aloituspaiva) {
             $this->aloituspaiva = $aloituspaiva;
         }
+
+        public function __toString() {
+		    return "Task Nro $this->id. $this->kuvaus. $this->aloituspaiva.";
+	}
     }
