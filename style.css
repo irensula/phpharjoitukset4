@@ -4,14 +4,14 @@ body {
 }
 .center-container {
     width: 33%;
-    margin: 100px auto;
+    margin: 100px auto 50px auto;
 }
 h2 {
     font-size: 50px;
     margin-bottom: 30px;
     text-transform: uppercase;
 }
-.container {
+.container, .tasks {
     padding: 30px;
     margin-bottom: 30px;
     border: 1px black solid;
@@ -23,9 +23,9 @@ h2 {
 .container input {
     margin: 20px;
 }
-p {
+.tasks {
     width: 30%;
-    margin: 30px auto;
+    margin: 0 auto;
     background-color: #9cfe60;
 }
 

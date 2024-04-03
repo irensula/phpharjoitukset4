@@ -55,7 +55,9 @@
             // array_push($myArray, new Task(1, “Go shopping”, “2024/01/23”));
             array_push($tasks, $newTask);
             foreach ($tasks as $task) {
-                echo "<p>$task</p>";
+                echo '<div class="tasks">';
+                echo $task;
+                echo '</div>';
             }
 
             
