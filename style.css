@@ -14,7 +14,7 @@ h2 {
 .container, .tasks {
     padding: 30px;
     margin-bottom: 30px;
-    border: 1px black solid;
+    border: 2px black solid;
     border-radius: 20px;
     font-size: 20px;
     line-height: 25px;

@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +24,7 @@
 <div class="center-container">
     <h2>ToDo List</h2>
 
-    <form action="index.php" method="get">
+    <form action="index.php" method="post">
         <div class="container">
             <label for="kuvaus">Mitä haluat tehdä?</label> 
             <input type="text" name="kuvaus" id="kuvaus" maxlength=50><br>
@@ -34,39 +36,42 @@
     </form>
 </div>
     
-
-    
-    
-
     <?php
 
-        $tasks = array();
-
         $id = 1;
-
-        $aloituspaiva = date("d/m/Y");
-
-        if(isset($_GET['kuvaus'], $_GET['aloituspaiva'])){
-            $kuvaus = htmlspecialchars($_GET['kuvaus']);
-            $aloituspaiva = htmlspecialchars($_GET['aloituspaiva']);
-
+        if (isset($_POST['kuvaus'], $_POST['aloituspaiva'])) {
+            
+            $kuvaus = htmlspecialchars($_POST['kuvaus']);
+            $aloituspaiva = htmlspecialchars($_POST['aloituspaiva']);
+            
+            $tasks = array();
+            
             $newTask = new Task($id, $kuvaus, $aloituspaiva);
             
-            // array_push($myArray, new Task(1, “Go shopping”, “2024/01/23”));
-            array_push($tasks, $newTask);
-            foreach ($tasks as $task) {
-                echo '<div class="tasks">';
-                echo $task;
-                echo '</div>';
+            if (isset($_SESSION['tasksArray'])) {
+                $tasks = $_SESSION['tasksArray'];
+                array_push($tasks, $newTask);
+                $_SESSION['tasksArray'] = $tasks;
+                print_r($_SESSION['tasksArray']);
+                // $tasksList = $_SESSION['tasksArray'];
+                // foreach ($tasksList as $taskList) {
+                //     echo '<div class="tasks">';
+                //     echo $taskList;
+                //     echo '</div>';
+                // }    
+            } else {
+                array_push($tasks, $newTask);
+                $_SESSION['tasksArray'] = $tasks;
+                print_r($_SESSION['tasksArray']);
+                // foreach ($tasks as $task) {
+                //     echo '<div class="tasks">';
+                //     echo $task;
+                //     echo '</div>';
+                // }
             }
-
-            
-            // while ():
-            //     echo $tasks;
-            //     $id++;
-            // endwhile;
         }
     ?>
-
 </body>
 </html>
+
+<!-- __PHP_Incomplete_Class Object ??? -->
