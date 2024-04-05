@@ -70,13 +70,15 @@
                 $_SESSION['tasksArray'] = $tasks;
                 $tasksList = $_SESSION['tasksArray'];
 
-                // echo '<div class="tasks">';
-                // foreach ($tasksList as $taskList) {
-                //     echo "<p class='taskList'>";
-                //     echo $taskList;
-                //     echo "<p>";
-                // }
-                // echo '</div>';
+                $i = 1;
+                $newTask->setId($i);
+                echo '<div class="tasks">';
+                while($i < count((array)$tasksList)) {
+                    
+                    echo $i . ". " .  $tasksList[$i] . "<br>";
+                    $i++;
+                }
+                echo '</div>'; 
             }
         }
     ?>
