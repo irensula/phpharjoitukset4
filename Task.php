@@ -29,6 +29,6 @@
         }
 
         public function __toString() {
-		    return "Task Nro $this->id. $this->kuvaus. $this->aloituspaiva.";
+		    return "$this->kuvaus | $this->aloituspaiva<br>";
 	}
     }

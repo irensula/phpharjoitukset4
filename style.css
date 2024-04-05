@@ -22,13 +22,19 @@ h2 {
 }
 .container input {
     margin: 20px;
+    outline: none;
+    border-radius: 8px;
+    height: 30px;
+    font-family: "Montserrat", sans-serif;
 }
 .tasks {
     width: 30%;
     margin: 0 auto;
     background-color: #9cfe60;
 }
-
+.taskList {
+  padding-bottom: 10px;
+}
 .button-56 {
   align-items: center;
   background-color: #f9dcdc;
