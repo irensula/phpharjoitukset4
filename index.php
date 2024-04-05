@@ -57,7 +57,6 @@
                 $tasksList = $_SESSION['tasksArray'];
 
                 $i = 1;
-                $newTask->setId($i);
                 echo '<div class="tasks">';
                 while($i < count((array)$tasksList)) {
                     
@@ -71,7 +70,6 @@
                 $tasksList = $_SESSION['tasksArray'];
 
                 $i = 1;
-                $newTask->setId($i);
                 echo '<div class="tasks">';
                 while($i < count((array)$tasksList)) {
                     
